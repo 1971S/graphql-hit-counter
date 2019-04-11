@@ -24,7 +24,6 @@ class App extends Component {
     })
     .then(res => res.json())
     .then(data => {
-      console.log(data)
       let newCalls = data.data.incrCalls
       this.setState({apiCalls: newCalls})
     });
