@@ -1,5 +1,12 @@
 const express = require('express');
+const cors = require('cors')
 const { ApolloServer } = require('apollo-server-express');
+const bodyParser = require('body-parser')
+
+const corsOptions = {
+  origin: 'http://localhost:3000',
+  credentials: true
+}
 
 import Redis from "ioredis";
  
@@ -11,6 +18,8 @@ const redis = new Redis()
 const server = new ApolloServer({ typeDefs, resolvers, context: {redis} });
  
 const app = express();
+app.use(bodyParser.json())
+app.use(cors(corsOptions))
 server.applyMiddleware({ app });
  
 app.listen({ port: 4000 }, () =>

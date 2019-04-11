@@ -8,8 +8,26 @@ class App extends Component {
   }
 
   componentDidMount() {
-    // ask for the number of connections, increase it and update the value on the state to display
-    console.log('hello')
+    let sendBody = {"query":`mutation{incrCalls(key: "apiCalls")}`}
+
+    fetch('http://localhost:4000/graphql', {
+      method: 'post',
+      body: JSON.stringify(sendBody),
+      headers: {
+        'Accept-Encoding':'gzip, deflate, br',
+        'Content-Type':'application/json',
+        'Accept':'application/json',
+        'Connection':'keep-alive',
+        'DNT':'1',
+        'Origin':'http://localhost:4000'
+      }
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
+      let newCalls = data.data.incrCalls
+      this.setState({apiCalls: newCalls})
+    });
   }
 
   render() {

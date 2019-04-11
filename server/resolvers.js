@@ -1,6 +1,6 @@
 const resolvers = {
   Query: {
-    get: (parent, {key}, {redis}) => {
+    getCalls: (parent, {key}, {redis}) => {
       try {
         return redis.get(key)
       } catch (error) {
@@ -10,15 +10,15 @@ const resolvers = {
   },
 
   Mutation: {
-    set: async (parent, {key, value}, {redis}) => {
+    incrCalls: async (parent, {key}, {redis}) => {
       try {
-        await redis.set(key, value)
-        return true
+        const res = await redis.incr(key)
+        return res
       } catch (error) {
         console.log(error)
         return false
       }
-    }
+    },
   }
 };
 

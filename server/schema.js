@@ -2,11 +2,11 @@ const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
   type Query {
-    get(key: String!): String
+    getCalls(key: String!): Int
   }
 
   type Mutation {
-    set(key: String!, value:  String!): Boolean!
+    incrCalls(key:String!): Int
   }
 `;
 
