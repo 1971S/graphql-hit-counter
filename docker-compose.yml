@@ -1,0 +1,5 @@
+# Use version 3 of docker-compose (latest at time of writing)
+version: '3'
+
+# Define the services
+services:
