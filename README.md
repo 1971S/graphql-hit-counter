@@ -5,7 +5,7 @@
 1. Clone the repo
 
 ```
-$ git clone https://github.com/1971S/qub.git
+$ git clone https://github.com/1971S/graphql-hit-counter
 ```
 
 2. Run the redis docker image (should also work with local redis installation)
@@ -25,3 +25,5 @@ $ cd server -> npm install -> npm start
 ```
 $ cd client -> npm install -> npm start
 ```
+
+5. Use the app
