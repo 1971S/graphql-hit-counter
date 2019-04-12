@@ -8,12 +8,12 @@ const corsOptions = {
   credentials: true
 }
 
-import Redis from "ioredis";
+const Redis = require('ioredis');
  
 const typeDefs = require('./schema')
 const resolvers = require('./resolvers')
 
-const redis = new Redis()
+const redis = new Redis({host: 'redis'});
  
 const server = new ApolloServer({ typeDefs, resolvers, context: {redis} });
  

@@ -8,22 +8,16 @@
 $ git clone https://github.com/1971S/graphql-hit-counter
 ```
 
-2. Run the redis docker image (should also work with local redis installation)
+2. Initialize the server
 
 ```
-$ docker run -p 6379:6379 --name redis -e ALLOW_EMPTY_PASSWORD=yes bitnami/redis:latest
+$ cd server -> docker-compose up
 ```
 
-3. Initialize the server
-
-```
-$ cd server -> npm install -> npm start
-```
-
-4. Initialize the client
+3. Initialize the client
 
 ```
 $ cd client -> npm install -> npm start
 ```
 
-5. Use the app
+4. Use the app
